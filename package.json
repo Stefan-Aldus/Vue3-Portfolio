@@ -13,6 +13,8 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
