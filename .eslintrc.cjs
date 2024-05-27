@@ -3,7 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  end: {
+  env: {
     browser: true,
     node: true,
     es2021: true

@@ -33,7 +33,10 @@
         <h2 class="text-xl font-bold">Favorite Artists</h2>
         <artistInfo />
       </div>
-      <div class="flex flex-col items-center w-1/2 h-11/12" v-if="currentCard === 'programmingLanguages'">
+      <div
+        class="flex flex-col items-center w-1/2 h-11/12"
+        v-if="currentCard === 'programmingLanguages'"
+      >
         <h2 class="text-xl font-bold">Programming Languages</h2>
         <ul class="flex flex-col justify-around h-">
           <li v-for="language in programmingLanguages" :key="language">{{ language }}</li>
