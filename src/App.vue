@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="app h-screen w-full flex flex-col justify-between">
+  <div class="app h-screen w-full flex flex-col justify-between bg-red-200">
     <nav>
       <!-- Navigation links -->
       <router-link to="/">Home</router-link>
@@ -13,20 +13,6 @@ import { RouterLink, RouterView } from 'vue-router'
       <!-- ... -->
     </nav>
     <router-view />
-    <footer class="grid grid-cols-3 gap-2">
-      <div>
-        <p>Footer Content</p>
-        <p>Footer Content</p>
-      </div>
-      <div>
-        <p>Footer Content</p>
-        <p>Footer Content</p>
-      </div>
-      <div>
-        <p>Footer Content</p>
-        <p>Footer Content</p>
-      </div>
-    </footer>
   </div>
 </template>
 
