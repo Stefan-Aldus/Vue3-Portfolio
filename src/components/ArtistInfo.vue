@@ -36,10 +36,17 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import axios from 'axios'
 
+interface Artist {
+  name: string
+  images: { url: string }[]
+  genres: string[]
+  followers: { total: number }
+}
+
 export default defineComponent({
   name: 'ArtistInfo',
   setup() {
-    const artist = ref(null)
+    const artist = ref<Artist | null>(null)
     const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
     const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID
     const artistIds = [

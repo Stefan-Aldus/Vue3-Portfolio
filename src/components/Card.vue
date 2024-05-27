@@ -82,7 +82,7 @@ export default defineComponent({
       default: 'Software Engineer'
     },
     programmingLanguages: {
-      type: Array,
+      type: Array as () => string[],
       required: true,
       default: () => ['JavaScript', 'TypeScript', 'Python']
     },
