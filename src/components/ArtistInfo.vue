@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col mx-auto">
-    <div v-if="artist" class="p-4">
+  <div class="flex flex-col mx-auto w-11/12">
+    <div v-if="artist" class="p-4 w-11/12">
       <div class="flex items-center mb-4">
         <img
           :src="artist.images[0].url"
@@ -17,7 +17,7 @@
 
       <div>
         <h3 class="text-xl font-bold">Followers:</h3>
-        <p class="text-lg">{{ artist.followers.total }}</p>
+        <p class="text-lg">{{ artist.followers.total.toLocaleString() }}</p>
       </div>
 
       <div class="flex justify-around">
@@ -47,8 +47,7 @@ export default defineComponent({
       '3YQKmKGau1PzlVlkL1iodx?si=J9uENDwERx6WcoQvIZMrTA', // Twenty One Pilots artist ID
       '2n2RSaZqBuUUukhbLlpnE6?si=MwarDQwGS36k-fQyYBo52A' // Sleep Token artist ID
     ]
-    // Select a random artist ID from the list
-    const artistId = artistIds[Math.floor(Math.random() * artistIds.length)]
+    const currentIndex = ref(0)
 
     const getToken = async () => {
       const tokenResponse = await axios.post(
@@ -66,7 +65,7 @@ export default defineComponent({
       return tokenResponse.data.access_token
     }
 
-    const fetchArtistData = async () => {
+    const fetchArtistData = async (artistId: string) => {
       try {
         const token = await getToken()
         const response = await axios.get(`https://api.spotify.com/v1/artists/${artistId}`, {
@@ -80,12 +79,24 @@ export default defineComponent({
       }
     }
 
+    const nextArtist = () => {
+      currentIndex.value = (currentIndex.value + 1) % artistIds.length
+      fetchArtistData(artistIds[currentIndex.value])
+    }
+
+    const prevArtist = () => {
+      currentIndex.value = (currentIndex.value - 1 + artistIds.length) % artistIds.length
+      fetchArtistData(artistIds[currentIndex.value])
+    }
+
     onMounted(() => {
-      fetchArtistData()
+      fetchArtistData(artistIds[currentIndex.value])
     })
 
     return {
-      artist
+      artist,
+      nextArtist,
+      prevArtist
     }
   }
 })
