@@ -28,3 +28,9 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# Sensitive or high-churn files
+.env
+.env.development
+.env.test
+.env.production
