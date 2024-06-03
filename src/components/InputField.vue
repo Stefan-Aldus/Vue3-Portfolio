@@ -54,11 +54,6 @@ export default defineComponent({
     return {
       modelValue: props.modelValue
     }
-  },
-  watch: {
-    modelValue(newValue) {
-      emit('update:modelValue', newValue)
-    }
   }
 })
 </script>
