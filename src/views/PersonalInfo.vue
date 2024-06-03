@@ -3,7 +3,7 @@ import Card from '../components/Card.vue'
 </script>
 
 <template>
-  <div class="w-screen h-screen flex flex-col justify-center">
+  <div class="w-full h-screen flex flex-col justify-center">
     <Card
       name="Stefan Aldus"
       quote="The only way to do great work is to love what you do."
@@ -21,7 +21,7 @@ import Card from '../components/Card.vue'
         'Bootstrap CSS - Basics'
       ]"
       jobTitle="Software Engineer"
-      profileImg="/src/assets/img/stefan-aldus.jpg"
+      profileImg="https://avatars.githubusercontent.com/u/112871693?v=4"
       :languages="{ English: 'Proficient', Dutch: 'Native' }"
     />
   </div>
