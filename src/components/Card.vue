@@ -1,6 +1,6 @@
 <template>
-  <div class="p-6 w-screen flex justify-center">
-    <div class="w-10/12 rounded-[50px] bg-slate-400 p-4 flex justify-around">
+  <div class="p-6 w-full flex justify-center">
+    <div class="w-10/12 rounded-[50px] bg-purple-200 shadow-lg p-4 flex justify-around">
       <div class="flex flex-col items-center">
         <img :src="profileImg" alt="Profile Image" class="rounded-full w-32 h-32" />
         <h1 class="text-2xl font-bold">{{ name }}</h1>
@@ -41,6 +41,13 @@
         <ul class="flex flex-col justify-around h-">
           <li v-for="language in programmingLanguages" :key="language">{{ language }}</li>
         </ul>
+      </div>
+      <div class="flex flex-col items-center w-1/2" v-if="currentCard === 'moreInfo'">
+        <h2 class="text-xl font-bold">More Info</h2>
+        <p>
+          More info about {{ name }} can be found
+          <router-link class="text-indigo-900 hover:underline" :to="'/more-info'">here</router-link>
+        </p>
       </div>
     </div>
   </div>
@@ -93,7 +100,7 @@ export default defineComponent({
     }
   },
   setup(props) {
-    const cards = ref(['artist', 'programmingLanguages'])
+    const cards = ref(['artist', 'programmingLanguages', 'moreInfo'])
     let currentCard = ref('artist') // Default to artist
     const currentCardIndex = ref(cards.value.indexOf(currentCard.value))
 

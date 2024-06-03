@@ -2,15 +2,18 @@
 // Imports
 import { defineProps, ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import NavigationLink from './components/NavigationLink.vue'
 </script>
 
 <template>
-  <div class="app h-screen w-full flex flex-col justify-between bg-red-200">
-    <nav>
+  <div
+    class="app min-h-screen h-full w-full min-w-screen max-w-screen flex flex-col justify-between bg-purple-300"
+  >
+    <nav class="bg-indigo-100 p-4 shadow-md">
       <!-- Navigation links -->
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <!-- ... -->
+      <NavigationLink to="/">Home</NavigationLink>
+      <NavigationLink to="/more-info">Personal Info</NavigationLink>
+      <NavigationLink to="/contact">Contact Form</NavigationLink>
     </nav>
     <router-view />
   </div>
